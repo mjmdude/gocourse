@@ -1,0 +1,34 @@
+package variables
+
+import "fmt"
+
+// var middleName string = "Cane"
+
+func main() {
+	// var age int
+	// var name string = "john"
+	// var name1 string = "jane"
+
+	// count := 10
+	// lastName := "Smith"
+	// middleName := "Cane"
+	middleName := "Mayor"
+	fmt.Println(middleName)
+
+	// Default values
+	// Numeric types: 0
+	// Boolean types: false
+	// String types: ""
+	// Pointers, slices, maps, functions, structs: nil
+
+	// ----- SCOPE
+	// fmt.Println(firstName)
+
+	// Naming convention
+	//
+
+}
+func printname() {
+	firstName := "Michael"
+	fmt.Println(firstName)
+}
