@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+func main() {
+	// while until condition like
+	i := 1
+	for i <= 5 {
+		fmt.Println("Iteration:", i)
+		i++
+	}
+	// Infinite loop but break on condition
+	sum := 0
+	for {
+		sum += 10
+		fmt.Println("Sum:", sum)
+		if sum >= 50 {
+			break
+		}
+	} // while with continue
+	//
+	num := 1
+	for num <= 10 {
+		if num%2 == 0 {
+			num++
+			continue
+		}
+		fmt.Println("Odd Number:", num)
+		num++
+	}
+}
