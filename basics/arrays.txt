@@ -1,0 +1,60 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// var arrayName [size]elementType
+	var numbers [5]int
+	numbers[0] = 9
+	numbers[1] = 22
+	numbers[2] = 22
+	numbers[3] = 22
+	numbers[4] = 20
+	fmt.Println(numbers)
+	fruits := [4]string{"a", "b", "c", "d"}
+	fmt.Println(fruits)
+	fmt.Println(fruits[2])
+
+	originalArray := [3]int{1, 2, 3}
+	var copiedArray *[3]int
+	copiedArray = &originalArray
+	copiedArray[0] = 100
+	fmt.Println("Original Array", originalArray)
+	fmt.Println("Copied Array", copiedArray)
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println("Element at index,", i, ":", numbers[i])
+
+	}
+	// _ blank identifier to store unused values
+	for _, v := range numbers {
+		fmt.Printf("Value: %d\n", v)
+
+	}
+
+	fmt.Println("The length of numbers array is", len(numbers))
+
+	// Comparing arrays
+	array1 := [3]int{1, 2, 3}
+	array2 := [3]int{10, 2, 3}
+
+	fmt.Println("Array1 is equal to Array2:", array1 == array2)
+
+	var matrix [3][3]int = [3][3]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+	fmt.Println(matrix)
+
+	a, b := someFunction()
+	fmt.Println(a)
+	fmt.Println(b)
+
+	c, _ := someFunction()
+	fmt.Println(c)
+
+}
+func someFunction() (int, int) {
+	return 1, 2
+}
