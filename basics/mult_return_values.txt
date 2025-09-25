@@ -1,0 +1,38 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	q, r := divide(10, 3)
+	fmt.Printf("Quotient: %d. Remainder: %d\n", q, r)
+
+	result, err := compare(3, 3)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println(result)
+	}
+}
+
+//	func functionName(p1,p2 type2,...) (rT1, rT2,....){
+//		code blockconst
+//		return rt1, rt2
+//	}
+func divide(a, b int) (quotient int, remainder int) {
+	quotient = a / b
+	remainder = a % b
+	return
+}
+
+func compare(a, b int) (string, error) {
+	if a > b {
+		return "a is > b", nil
+	} else if b > a {
+		return "b is > a", nil
+	} else {
+		return "", errors.New("Unable to compare which is greater")
+	}
+}
