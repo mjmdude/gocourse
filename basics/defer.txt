@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func main() {
+	//Defer statement invokes a function at the end of a function.  Throws
+	//
+	process(10)
+}
+func process(i int) {
+
+	defer fmt.Println("Deferred i value:", i)
+	defer fmt.Println("1. Deferred Statement that was executed")
+	defer fmt.Println("2. Deferred Statement that was executed")
+	defer fmt.Println("3. Deferred Statement that was executed")
+	// Defer is LIFO.  Arguments to Defer is evaluated immediatley as soon as encountered, but will run.
+	// Important!!!
+	i++
+
+	fmt.Println("Normal exectuction statement")
+	fmt.Println("Value of i:", i)
+
+}

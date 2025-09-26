@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	defer fmt.Println("Deferred Statement")
+	fmt.Println("Starting the main function")
+	// Exit with status code of 1
+	os.Exit(1)
+	// This will not run
+	fmt.Println("End of main function")
+}
+
+// os.exit exits go immediately w/out performing any cleanup operations.  No defer functions are run.
+// Use Cases:
+////Error handling
+////Termination conditions
+////Exit Codes
+// Best Practices
+////Avoid Deferred Actions
+////Status Codes.  Use meaningfu status codes.  0 == Successful
+////Avoide Abuse.  Use when program must be stopped immediately.

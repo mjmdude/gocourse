@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+func main() {
+	//panic used to signal an unexpected error condition
+	// stops the current flow in a function.  Then defer functions are run.
+	//panic(interface{}) interface is like any.  Can be any type.
+	//Example of valid input
+	// Recover regains control of a go routine.
+	process(10)
+
+	//Example of invalid input
+	process(-3)
+}
+func process(input int) {
+	defer fmt.Println("Deferred1")
+	defer fmt.Println("Deferred2")
+	if input < 0 {
+		fmt.Println("Before Panic")
+		panic("input must be a non-negative number")
+		// fmt.Println("After Panic"): This is unreachable code since after panic.
+		// defer fmt.Println("Deferred3"): This is unreachable code since after panic.
+	}
+	fmt.Println("Processing input:", input)
+}

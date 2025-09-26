@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func init() {
+	fmt.Println("Initializing package1...")
+}
+func init() {
+	fmt.Println("Initializing package2...")
+}
+func init() {
+	fmt.Println("Initializing package3...")
+}
+func main() {
+	// init function always gets executed before main function
+	// go runs init functions in order they were declared and before the main function
+	// for init variables, state etc...
+	fmt.Println("Inside the main function")
+}
+
+//Use Cases
+//  	Setup Tasks
+//		Configuraiton
+//		Registering Components
+//		Database Init
+//Best Practices
+//		Avoid Side Effects causing problems with other packages
+//		Initialization Order
+//		Documentation

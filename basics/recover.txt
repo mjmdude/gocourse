@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func main() {
+	process()
+	fmt.Println("Returned from process.")
+}
+func process() {
+	defer func() {
+		if r := recover(); r != nil { //This line checks if recover caught a panic.  If r!=nil,then there was a panic.
+
+			fmt.Println("Recovered:", r)
+		}
+	}()
+	fmt.Println("Start Process")
+	panic("Something went wrong")
+	// fmt.Println("End Process"): UR code
+}
+
+//Recover
+//// Graceful recover
+//// Cleanup
+////Logging and Reporting When you have a panic
+// Best Practices
+//// User recover with Defer
+//// Avoid Silent Recover
+//// Avoid Overuse
