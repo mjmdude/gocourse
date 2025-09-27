@@ -1,0 +1,28 @@
+// pointer is a variable that stores the memory addres of anoother variable
+// modify value indirectly
+// Pass large data structure efficiently
+// direct memory management for performance
+// & show address; * show the value at the address
+package main
+
+import "fmt"
+
+func main() {
+	// var ptr *int -- ptr is a pointer that store address of an int
+	var ptr *int
+	var a int = 10
+	ptr = &a
+
+	fmt.Println(a)
+	fmt.Println(ptr)
+	// fmt.Println(*ptr) // dereferencing a ptr
+	// if ptr == nil {
+	// 	fmt.Println("Pointer is nil")
+	// }
+	modifyValue(ptr) //Memory address of a is sent to the function
+	fmt.Println(a)
+}
+
+func modifyValue(ptr *int) { // ptr is an integer pointer
+	*ptr++ // Dereference to change the value at this memory address to add 1
+}
