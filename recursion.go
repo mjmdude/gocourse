@@ -1,0 +1,43 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Do Factorial:")
+	fmt.Println(factorial(0))
+	fmt.Println(factorial(1))
+	fmt.Println(factorial(2))
+	fmt.Println(factorial(3))
+	fmt.Println(factorial(4))
+	fmt.Println("Do Sum of Digits:")
+	fmt.Println(sumOfDigits(100))
+	fmt.Println(sumOfDigits(91))
+	fmt.Println(sumOfDigits(92))
+	fmt.Println(sumOfDigits(93))
+	fmt.Println(sumOfDigits(94))
+
+}
+
+// recursion  - function calling itself
+// breaks problem into smaller problem of same type.
+// In every recursive function there is a base case.
+// Mostly Mathematical Algorithms.  Tree and Graph Traversal.
+// Traverse complex data structures....trees and graphs.
+
+func factorial(n int) int {
+	// Base case: factorial of 0 is 1
+	if n == 0 {
+		return 1
+	}
+	// Recursive Case; factorial of n is n * factorial(n-1)
+	return n * factorial(n-1)
+	// n * (n-1) * (n-2) *....until (n-y)=0.  This gives factorial(0) == 1.
+}
+
+func sumOfDigits(n int) int {
+	// Base case:
+	if n < 10 {
+		return n
+	}
+	return n%10 + sumOfDigits(n/10)
+}
