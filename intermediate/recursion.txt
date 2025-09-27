@@ -23,6 +23,7 @@ func main() {
 // In every recursive function there is a base case.
 // Mostly Mathematical Algorithms.  Tree and Graph Traversal.
 // Traverse complex data structures....trees and graphs.
+// Might be less useful than for
 
 func factorial(n int) int {
 	// Base case: factorial of 0 is 1
