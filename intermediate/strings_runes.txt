@@ -1,0 +1,81 @@
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
+func main() {
+	// stings is sequence of unsigned 8 bytes that represent text
+
+	message := "Hello, \nGo!"
+	message1 := "Hello, \tGo!"
+	message2 := "Hello, \rGo!"   // Gotes to first postion and type Go!  Excape and character is 1 character
+	rawMessage := `Hello, \nGo!` // discards escape sequence and prints exactly what you see
+	fmt.Println(message)
+	fmt.Println(message1)
+	fmt.Println(message2)
+	fmt.Println(rawMessage)
+
+	fmt.Println("Length of message:", len(message))
+	fmt.Println("Length of message2:", len(message2))
+	fmt.Println("Length of raw message:", len(rawMessage))
+
+	fmt.Println("Print first character of message:", message[0]) // ASCII value of H
+
+	greeting := "Hello"
+	name := "Alice"
+
+	fmt.Println(greeting + " " + name)
+
+	str1 := "Apple"          // a has ASCII 65
+	str := "apple"           // a has ASCII 65
+	str2 := "banana"         // b has ASCII 98
+	str3 := "app"            // as has ASCII 97
+	fmt.Println(str1 < str2) // lexical graphical comparison.  Compared
+	fmt.Println(str3 < str1) // lexical graphical comparison.  Compared ASCII value in order.
+	fmt.Println(str > str1)
+	fmt.Println(str > str3)
+
+	// String iteration.  Like iteration over slice.
+	for _, char := range message {
+		// fmt.Printf("Character at index %d is %c\n", i, char)
+		fmt.Printf("%x Hexidecimal, %v ASCII\n", char, char)
+	}
+	fmt.Println("Rune count: ", utf8.RuneCountInString(greeting)) // like len but counts utf8 characters.
+
+	// Strings are immuteable
+
+	greetingWithName := greeting + name
+	fmt.Println(greetingWithName) // can't change a screen.  Have to add new.
+
+	//Rune is alias for int32.  Represents a unicode value... an integer value converted to character.
+
+	var ch rune = 'a' // declared with single quotes.  double quotes for strings.
+	jch := '\u65E5'
+
+	fmt.Println(ch)
+	fmt.Println(jch)
+	fmt.Printf("%c\n", ch)
+	fmt.Printf("%c\n", jch)
+
+	// Convert runes to strings
+	cstr := string(ch)
+	fmt.Println(cstr)
+	fmt.Printf("Type of cstr is %T\n ", cstr)
+	fmt.Printf("Type of ch is %T\n ", ch)
+
+	// Runes support handling or unicode characters.
+
+	const NIHONGO = "映だ円" // Japanese text
+	fmt.Println(NIHONGO)
+
+	jhello := "こんにちは" // japanse hello
+	for _, runeValue := range jhello {
+		fmt.Printf("Character: %c, ASCII value: %v, Hexadecimal value: %x\n", runeValue, runeValue, runeValue)
+	}
+
+	r := '😊'
+	fmt.Printf("Character: %c, ASCII value: %v, Hexadecimal value: %x\n", r, r, r)
+
+}
