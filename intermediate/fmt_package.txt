@@ -1,0 +1,60 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Printing Functions
+	// fmt.Print("Hello ")
+	// fmt.Print("World!")
+	// fmt.Print(12_456)
+
+	// fmt.Println("Hello ")
+	// fmt.Println("World!")
+	// fmt.Println(12_456, "\n\n")
+
+	// name := "John"
+	// age := 25
+
+	// fmt.Printf("Name: %s, Age: %d\n", name, age)
+	// fmt.Printf("Binary: %b, Age: %X\n\n\n", age, age)
+
+	// // Formatting Functions
+	// // Sprintf only returns resultting string
+	// s := fmt.Sprint("Hello", "World!", 123, 456)
+	// fmt.Print(s)
+	// s = fmt.Sprintln("Hello", "World!", 123, 456)
+	// fmt.Print(s)
+	// fmt.Print(s)
+	// fmt.Print(s)
+
+	// sf := fmt.Sprintf("Name: %s, Age: %d", name, age)
+	// fmt.Print(sf)
+	// fmt.Print(sf)
+
+	// Scanning Functions
+	// Scans text from standard input
+	// var name string
+	// var age int
+
+	// fmt.Print("Enter your name and age:  ")
+	// fmt.Scan(&name, &age) //copies of original variables.  Blanks are mnot accepted
+	// fmt.Scanln(&name, &age) //copies of original variables.  Stops after encounters newline.
+	// fmt.Scanf("%s %d", &name, &age) //copies of original variables.  Stops after encounters newline.
+
+	// fmt.Printf("Name: %s, Age: %d\n", name, age)
+
+	// Error formatting functions
+
+	err := checkAge(14)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
+
+}
+func checkAge(age int) error {
+	if age < 18 {
+		return fmt.Errorf("Age %d is too young to drive.", age)
+
+	}
+	return nil
+}
