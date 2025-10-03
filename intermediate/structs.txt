@@ -84,6 +84,7 @@ func main() {
 	// fmt.Println(p1.age)
 
 	// Methods attached to structs
+	// Methods can be defined for any type not just structs
 
 }
 
