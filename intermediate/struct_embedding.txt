@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+type Employee struct {
+	employeeInfo person
+	// person is better since it is anonymous
+	empId  string
+	salary float64
+}
+
+func (p person) introduce() {
+	fmt.Printf("Hi, I'm %s and I'm %d years old.\n", p.name, p.age)
+}
+
+func (e Employee) introduce() {
+	fmt.Printf("Hi, I'm %s, employee ID: %s, and I earn %.2f \n", e.employeeInfo.name, e.empId, e.salary)
+}
+
+func main() {
+
+	emp := Employee{
+		employeeInfo: person{name: "John", age: 30},
+		empId:        "E001", salary: 50_000,
+	}
+
+	fmt.Println("Name:", emp.employeeInfo.name) //Direct access of name field w/out going through emp.person.name.
+	fmt.Println("Age:", emp.employeeInfo.age)   // Its just emp.name
+	fmt.Println("ID:", emp.empId)
+	fmt.Println("Salary:", emp.salary)
+
+	emp.introduce()
+	emp.employeeInfo.introduce()
+
+}
